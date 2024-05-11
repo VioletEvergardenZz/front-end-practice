@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 导入方式</title>
+    <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th,td{
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 8px;
+        }
+        th{
+            background-color: #ddd;
+        }
+        button{
+            margin-left: 5px;
+        }
+    </style>
+    <script>
+        console.log('Hello body 标签的内联样式');
+    </script>
+    <script src="./js/myscript.js"></script>
+    <script src="./js/table.js"></script>
+</head>
+
+<body>
+    <h1>JavaScript的导入方式</h1>
+    <div id="box1">这是一个ID选择器标签</div>
+    <div class="box2">这是一个类选择器标签</div>
+    <div>普通的div标签</div>
+    <button onclick="click_event()">这是一个点击按钮</button>
+    <button>点击按钮</button>
+    <input type="text" onfocus="focus_event()" onblur="blur_event()">
+
+
+    <h1 style="text-align: center">表格的增删改查</h1>
+    <button onclick="addRow()">新增数据</button>
+    
+    <table id="table"> 
+        <tr>
+            <th>姓名</th>
+            <th>联系方式</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>xiaoxiao</td>
+            <td>520</td>
+            <td>
+                <button onclick="editRow(this)">编辑</button><button onclick="deleteRow(this)">删除</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        console.log('Hello body 标签的内联样式');
+        // alert('你好 内联样式弹窗');
+        // 点击事件
+        function click_event(){ 
+            alert('点击事件触发了')
+        }
+        // 聚焦事件
+        function focus_event() {
+            console.log('获取焦点');
+        }
+        // 失去焦点事件
+        function blur_event(){
+            console.log('失去焦点');
+        }
+
+        var element_id=document.getElementById('box1');
+        console.log(element_id);
+
+        var element_class=document.getElementsByClassName('box2')[0]
+        console.log(element_class);
+
+        var element_tag=document.getElementsByTagName('div')[2]
+        console.log(element_tag);
+
+        element_id.innerHTML='<a href="#">跳转链接</a>';
+        element_tag.style.color='red';
+        element_tag.style.fontSize='20px';
+
+        // DOM属性绑定事件
+        var button_element=document.getElementsByTagName('button')[1];
+        console.log(button_element);
+        button_element.onclick=function(){
+            alert('DOM属性 按键触发')
+        }
+    </script>
+
+    
+</body>
+</html>
